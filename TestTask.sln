@@ -1,17 +1,17 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.API", "TestTask\TestTask.API.csproj", "{41FC1D59-8136-4B25-98CE-CF1079F71D0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.API", "src\TestTask\TestTask.API.csproj", "{41FC1D59-8136-4B25-98CE-CF1079F71D0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1EE2862F-1412-4FBB-821A-DB3C48C591E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.BL", "TestTask.BL\TestTask.BL.csproj", "{8268A9E4-E8B7-4522-BF55-892A58FD239F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.BL", "src\TestTask.BL\TestTask.BL.csproj", "{8268A9E4-E8B7-4522-BF55-892A58FD239F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Infrustructure", "TestTask.Infrustructure\TestTask.Infrustructure.csproj", "{ADE0BDA3-D6DC-4A35-B24C-45883AB628E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Infrustructure", "src\TestTask.Infrustructure\TestTask.Infrustructure.csproj", "{ADE0BDA3-D6DC-4A35-B24C-45883AB628E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Domain", "TestTask.Domain\TestTask.Domain.csproj", "{119DF609-B5C5-4BB9-823E-A187D743D84B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Domain", "src\TestTask.Domain\TestTask.Domain.csproj", "{119DF609-B5C5-4BB9-823E-A187D743D84B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
