@@ -13,10 +13,6 @@ namespace TestTask.Data.IRepository
         Task<T> GetOneByAsync(Func<IQueryable<T>,
             IIncludableQueryable<T, object>> include = null,
             Expression<Func<T, bool>> expression = null,
-            CancellationToken cancellationToken = default);
-
-        IQueryable<T> GetAllAsync(Func<IQueryable<T>,
-            IIncludableQueryable<T, object>>? include = null,
-            Expression<Func<T, bool>>? expression = null);
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null);
     }
 }

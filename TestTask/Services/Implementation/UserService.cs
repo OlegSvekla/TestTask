@@ -19,17 +19,18 @@ namespace TestTask.Services.Implementation
 
         public async Task<User> GetUser()
         {
-            var userWithMostOrders = _userRepository
-                .GetAllAsync()
-                .OrderByDescending(user => user.Orders.Count)
-                .FirstOrDefault();
+            var userWithMostOrders = await _userRepository
+                .GetOneByAsync(include: q => q.Include(u => u.Orders), 
+                               orderBy: q => q.OrderByDescending(user => user.Orders.Count));
 
             return userWithMostOrders;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            var query = _userRepository.GetAllByAsync(include: null, expression: user => user.Status == UserStatus.Inactive);
+            var query = _userRepository
+                .GetAllByAsync(include: null, expression: user => user.Status == UserStatus.Inactive);
+
             return await query;
         }
     }

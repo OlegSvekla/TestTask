@@ -17,18 +17,15 @@ namespace TestTask.Services.Implementation
         public async Task<Order> GetOrder()
         {
             var orderWithHighestTotal = await _orderRepository
-                .GetAllAsync()
-                .OrderByDescending(order => order.Price * order.Quantity)
-                .FirstOrDefaultAsync();
+                .GetOneByAsync(orderBy: q => q.OrderByDescending(order => order.Price * order.Quantity));
 
             return orderWithHighestTotal;
         }
 
         public async Task<IEnumerable<Order>> GetOrders()
         {
-            var ordersWithQuantityGreaterThan10 = await _orderRepository.GetAllByAsync(
-                include: null,
-                expression: order => order.Quantity > 10
+            var ordersWithQuantityGreaterThan10 = await _orderRepository
+                .GetAllByAsync(include: null, expression: order => order.Quantity > 10
             );
 
             return ordersWithQuantityGreaterThan10;

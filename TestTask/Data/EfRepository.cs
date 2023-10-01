@@ -39,78 +39,29 @@ namespace TestTask.Data
                               .ToListAsync(cancellationToken);
         }
 
-        //public async IQueryable<T> GetAllAsync(Func<IQueryable<T>,
-        //    IIncludableQueryable<T, object>>? include = null,
-        //    Expression<Func<T, bool>>? expression = null)
-        //{
-        //    IQueryable<T> query = _dbSet;
-
-        //    if (expression is not null)
-        //    {
-        //        query = query.Where(expression);
-        //    }
-        //    if (include is not null)
-        //    {
-        //        query = include(query);
-        //    }
-
-        //    return await query.AsNoTracking().ToListAsync();
-        //}
-
-        public IQueryable<T> GetAllAsync(Func<IQueryable<T>,
-            IIncludableQueryable<T, object>>? include = null,
-            Expression<Func<T, bool>>? expression = null)
+        public async Task<T> GetOneByAsync(
+                Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
+                Expression<Func<T, bool>> expression = null,
+                Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
         {
             IQueryable<T> query = _dbSet;
 
-            if (expression is not null)
-            {
-                query = query.Where(expression);
-            }
-            if (include is not null)
-            {
-                query = include(query);
-            }
-
-            return query.AsNoTracking();
-        }
-
-        //public IQueryable<T> GetAllBy(Func<IQueryable<T>, IQueryable<T>> include = null, Expression<Func<T, bool>> expression = null)
-        //{
-        //    IQueryable<T> query = _dbSet;
-
-        //    if (expression is not null)
-        //    {
-        //        query = query.Where(expression);
-        //    }
-        //    if (include is not null)
-        //    {
-        //        query = include(query);
-        //    }
-
-        //    return query.AsNoTracking();
-        //}
-
-        public async Task<T> GetOneByAsync(Func<IQueryable<T>,
-            IIncludableQueryable<T, object>> include = null,
-            Expression<Func<T, bool>> expression = null,
-            CancellationToken cancellationToken = default)
-        {
-            IQueryable<T> query = _dbSet;
-
-            if (expression is not null)
+            if (expression != null)
             {
                 query = query.Where(expression);
             }
 
-            if (include is not null)
+            if (include != null)
             {
                 query = include(query);
             }
 
-            var model = await query.AsNoTracking()
-                                   .FirstOrDefaultAsync(cancellationToken);
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
 
+            var model = await query.AsNoTracking().FirstOrDefaultAsync();
             return model;
         }
     }
