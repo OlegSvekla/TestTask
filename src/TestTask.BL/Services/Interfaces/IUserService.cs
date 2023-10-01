@@ -1,4 +1,4 @@
-﻿using TestTask.Domain.Models;
+﻿using TestTask.Domain.Entities;
 
 namespace TestTask.BL.Services.Interfaces
 {

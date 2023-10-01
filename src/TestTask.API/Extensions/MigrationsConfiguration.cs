@@ -3,7 +3,7 @@ using TestTask.Infrastructure.Data;
 
 namespace TestTask.API.Extensions
 {
-    public static class MigrationsExtensions
+    public static class MigrationsConfiguration
     {
         public static IApplicationBuilder RunDbContextMigrations(this IApplicationBuilder app)
         {

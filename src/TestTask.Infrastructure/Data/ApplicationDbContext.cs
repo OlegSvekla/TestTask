@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TestTask.Domain.Entities;
 using TestTask.Domain.Enums;
-using TestTask.Domain.Models;
 
 namespace TestTask.Infrastructure.Data
 {
