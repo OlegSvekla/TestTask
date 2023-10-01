@@ -6,6 +6,6 @@ namespace TestTask.Services.Interfaces
     {
         public Task<Order> GetOrder();
 
-        public Task<List<Order>> GetOrders();
+        public Task<IEnumerable<Order>> GetOrders();
     }
 }

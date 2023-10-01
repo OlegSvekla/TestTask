@@ -6,6 +6,6 @@ namespace TestTask.Services.Interfaces
     {
         public Task<User> GetUser();
 
-        public Task<List<User>> GetUsers();
+        public Task<IEnumerable<User>> GetUsers();
     }
 }
