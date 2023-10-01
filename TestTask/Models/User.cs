@@ -1,4 +1,5 @@
-﻿using TestTask.Enums;
+﻿using System.Text.Json.Serialization;
+using TestTask.Enums;
 
 namespace TestTask.Models
 {
@@ -10,6 +11,7 @@ namespace TestTask.Models
 
         public UserStatus Status { get; set; }
 
+        [JsonIgnore]
         public virtual List<Order> Orders { get; set; }
     }
 }
